@@ -1,12 +1,7 @@
 #flask app
 from flask import *
 from flask_cors import CORS
-import requests
-import urllib.request
-import json
-import requests
-import random
-import string
+
 
 
 app = Flask(__name__)
