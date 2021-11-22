@@ -16,6 +16,14 @@ CORS(app)
 def home():
     return render_template('index.html')
 
+@app.route('/mode')
+def mode():
+    return render_template('mode.html')
+
+@app.route('/failure')
+def failure():
+    return render_template('failure.html')
+
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
