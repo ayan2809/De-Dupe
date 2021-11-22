@@ -1,0 +1,20 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with UXWing SVG Editor - https://uxwing.com/svg-icon-editor/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="514" width="514" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <style transform="matrix(2.638395809914428,0,0,2.638395809914428,0,0) " type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;}</style>
+  <style media="screen" class="darkreader darkreader--sync"/>
+  <style media="screen" class="darkreader darkreader--sync"/>
+  <g stroke="null" id="svg_7">
+   <g stroke="null" id="svg_5">
+    <path stroke="null" id="svg_6" d="m139.213469,170.66343c28.87,0 52.27,10.96 52.27,24.46c0,13.51 -23.41,24.46 -52.27,24.46c-28.86,0 -52.27,-10.96 -52.27,-24.46c0,-13.5 23.41,-24.46 52.27,-24.46l0,0zm-52.27,81.83l0,18.78c9.3,33.03 101.18,26.65 104.55,-1.69l0,-18.76c-4.59,31.11 -97.2,33.35 -104.55,1.67l0,0l0,0zm-0.26,-48.89l0,18.34c9.3,32.26 101.69,27.9 105.07,0.23l0,-18.33c-4.6,30.39 -97.72,30.7 -105.07,-0.24l0,0zm0,23.7l0,18.78c9.3,33.03 101.69,28.57 105.07,0.23l0,-18.76c-4.6,31.11 -97.72,31.43 -105.07,-0.25l0,0z" class="st0"/>
+   </g>
+  </g>
+  <text style="--darkreader-inline-fill:#e8e6e3; --darkreader-inline-stroke:#b30000; cursor: move;" stroke="#FF0000" transform="matrix(2.4458310746126584,0,0,3.1566318199046464,-360.3757572270975,-419.1533183778176) " font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_8" y="214.282446" x="236.353039" stroke-width="0" fill="#000000">De Dupe</text>
+ </g>
+</svg>
