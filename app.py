@@ -23,6 +23,11 @@ def singleMode():
 def multiMode():
     return render_template('multiMode.html')
 
+@app.route('/dataUpload')
+def dataUpload():
+    return render_template('dataUpload.html')
+
+
 @app.route('/failure')
 def failure():
     return render_template('failure.html')
