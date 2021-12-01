@@ -15,6 +15,14 @@ def home():
 def mode():
     return render_template('mode.html')
 
+@app.route('/singleMode')
+def singleMode():
+    return render_template('singleMode.html')
+
+@app.route('/multiMode')
+def multiMode():
+    return render_template('multiMode.html')
+
 @app.route('/failure')
 def failure():
     return render_template('failure.html')
