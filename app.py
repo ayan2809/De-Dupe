@@ -58,47 +58,9 @@ def check_duplication():
     Specializationscale = request.form['Specializationscale']
     Educationscale = request.form['Educationscale']
     
-    checkDuplicates(MRN,firstName,lastName,DOB,State,Pincode,Phone,YOE,Specialization,Education,MRNscale,fNamescale,lNamescale,DOBscale,Statescale,Pincodescale,Phonescale,YOEscale,Specializationscale,Educationscale)
-    # print(MRN)
-    # print(firstName)
-    # print(lastName)
-    # print(DOB)
-    # print(State)
-    # print(Pincode)
-    # print(Phone)
-    # print(YOE)
-    # print(Specialization)
-    # print(Education)
-    # print(MRNscale)
-    # print(fNamescale)
-    # print(lNamescale)
-    # print(DOBscale)
-    # print(Statescale)
-    # print(Pincodescale)
-    # print(Phonescale)
-    # print(YOEscale)
-    # print(Specializationscale)
-    # print(Educationscale)
-
-    # verification = client.verify \
-    #     .services(service) \
-    #     .verifications \
-    #     .create(to=phone, channel='sms')
-
-    # current_otp = sendEmailVerificationRequest(receiver=email)
-    # session['temp_dict']={
-    #     'name': name,
-    #     'kishan_id': kishan_id,
-    #     'aadhaar_no': aadhaar_no,
-    #     'email': email,
-    #     'phone': phone,
-    # }
-    
-    # session['current_otp'] = current_otp
-    # session['phone_number'] = phone
-    # print(verification.status)
-    # print(current_otp)
-    # print(name, kishan_id, aadhaar_no, email, phone)
+    checkDuplicates(MRN,firstName,lastName,DOB,State,Pincode,Phone,YOE,Specialization,
+                    Education,MRNscale,fNamescale,lNamescale,DOBscale,Statescale,
+                    Pincodescale,Phonescale,YOEscale,Specializationscale,Educationscale)
     response = {'fName': firstName,
                 'lName': lastName,
                 'YOE': YOE}
@@ -110,7 +72,7 @@ if __name__ == '__main__':
     from argparse import ArgumentParser
 
     parser = ArgumentParser()
-    parser.add_argument('-p', '--port', default=8081,
+    parser.add_argument('-p', '--port', default=5000,
                         type=int, help="port to listen to")
     args = parser.parse_args()
     port = args.port
