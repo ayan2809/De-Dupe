@@ -51,13 +51,13 @@
             CSV File</button>
 
         <div class="image-upload-wrap">
-            <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+            <input class="file-upload-input" type='file' onchange="readURL(this);" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />  
             <div class="drag-text">
                 <h3>Drag and drop a file or select add CSV</h3>
             </div>
         </div>
         <div class="file-upload-content">
-            <img class="file-upload-image" src="#" alt="your image" />
+            <img class="file-upload-image" src="#" alt="Your File" />
             <div class="image-title-wrap">
                 <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
                         class="image-title">Uploaded CSV/XLXS</span></button>

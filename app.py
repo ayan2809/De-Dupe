@@ -1,7 +1,7 @@
 #flask app
 from flask import *
 from flask_cors import CORS
-
+from dedupe import *
 
 
 app = Flask(__name__)
@@ -31,6 +31,79 @@ def dataUpload():
 @app.route('/failure')
 def failure():
     return render_template('failure.html')
+
+
+@app.route('/check_duplication', methods=['POST'])
+def check_duplication():
+    # Fetching the data from the form
+    MRN=request.form['MRN']
+    firstName=request.form['firstName']
+    lastName=request.form['lastName']
+    DOB=request.form['DOB']
+    State= request.form['State']
+    Pincode=request.form['Pincode']
+    Phone = request.form['Phone']
+    YOE=request.form['YOE']
+    Specialization= request.form['Specialization']
+    Education = request.form['Education']
+    # Fetching the scale values
+    MRNscale = request.form['MRNscale']
+    fNamescale = request.form['fNamescale']
+    lNamescale = request.form['lNamescale']
+    DOBscale = request.form['DOBscale']
+    Statescale = request.form['Statescale']
+    Pincodescale = request.form['Pincodescale']
+    Phonescale = request.form['Phonescale']
+    YOEscale = request.form['YOEscale']
+    Specializationscale = request.form['Specializationscale']
+    Educationscale = request.form['Educationscale']
+    
+    checkDuplicates(MRN,firstName,lastName,DOB,State,Pincode,Phone,YOE,Specialization,Education,MRNscale,fNamescale,lNamescale,DOBscale,Statescale,Pincodescale,Phonescale,YOEscale,Specializationscale,Educationscale)
+    # print(MRN)
+    # print(firstName)
+    # print(lastName)
+    # print(DOB)
+    # print(State)
+    # print(Pincode)
+    # print(Phone)
+    # print(YOE)
+    # print(Specialization)
+    # print(Education)
+    # print(MRNscale)
+    # print(fNamescale)
+    # print(lNamescale)
+    # print(DOBscale)
+    # print(Statescale)
+    # print(Pincodescale)
+    # print(Phonescale)
+    # print(YOEscale)
+    # print(Specializationscale)
+    # print(Educationscale)
+
+    # verification = client.verify \
+    #     .services(service) \
+    #     .verifications \
+    #     .create(to=phone, channel='sms')
+
+    # current_otp = sendEmailVerificationRequest(receiver=email)
+    # session['temp_dict']={
+    #     'name': name,
+    #     'kishan_id': kishan_id,
+    #     'aadhaar_no': aadhaar_no,
+    #     'email': email,
+    #     'phone': phone,
+    # }
+    
+    # session['current_otp'] = current_otp
+    # session['phone_number'] = phone
+    # print(verification.status)
+    # print(current_otp)
+    # print(name, kishan_id, aadhaar_no, email, phone)
+    response = {'fName': firstName,
+                'lName': lastName,
+                'YOE': YOE}
+    
+    return response, 200
 
 
 if __name__ == '__main__':
