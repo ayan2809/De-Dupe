@@ -57,13 +57,11 @@ def check_duplication():
     YOEscale = request.form['YOEscale']
     Specializationscale = request.form['Specializationscale']
     Educationscale = request.form['Educationscale']
-    
-    checkDuplicates(MRN,firstName,lastName,DOB,State,Pincode,Phone,YOE,Specialization,
+
+    response=checkDuplicates(MRN,firstName,lastName,DOB,State,Pincode,Phone,YOE,Specialization,
                     Education,MRNscale,fNamescale,lNamescale,DOBscale,Statescale,
                     Pincodescale,Phonescale,YOEscale,Specializationscale,Educationscale)
-    response = {'fName': firstName,
-                'lName': lastName,
-                'YOE': YOE}
+    # response = {'fName': firstName, 'lName': lastName, 'YOE': YOE}
     
     return response, 200
 

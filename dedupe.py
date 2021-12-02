@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 import Levenshtein as lev
 import pandas as pd
-
+import json
 demoClient = MongoClient()
 myClient = MongoClient("localhost", 27017)
 myDatabase = myClient["De-dupe"]
@@ -88,15 +88,18 @@ def checkDuplicates(MRN,firstName,lastName,DOB,State,Pincode,
 
 
         if score >= 8 or similarityScore > 0.75:
-            data.append([document.get('MRN'), document.get('First Name'), document.get('Last Name'), document.get('DOB'),document.get('Phone Number'), document.get('Pincode'), document.get('State'), document.get('Years of experience'), document.get('Specialization'), document.get('Education'), similarityScore])
+            data.append([document.get('MRN'), document.get('First Name'), document.get('Last Name'), document.get('DOB'),document.get('Phone'), document.get('Pincode'), document.get('State'), document.get('Years of experience'), document.get('Specialization'), document.get('Education'), similarityScore])
             flag = 1
 
     count = 1
+    response = {'check': flag,
+                'data': []}
+    
     if flag == 0:
         print('---Data unique - PROCEED TO ENTER THE DATA INTO THE DATASET/CSV  ---')
     else:
         print('--- SIMILAR ENTRIES FOUND ---')
-        data_similarity = pd.DataFrame(data, columns=['MRN', 'First Name', 'Last Name', 'DOB', 'Phone Number', 'Pincode', 'State', 'Years of experience', 'Specialization', 'Education', 'Similarity Score'])
+        data_similarity = pd.DataFrame(data, columns=['MRN', 'First Name', 'Last Name', 'DOB', 'Phone', 'Pincode', 'State', 'Years of experience', 'Specialization', 'Education', 'Similarity Score'])
                                        
         data_similarity = data_similarity.sort_values('Similarity Score', ascending=False)
         # THIS DATAFRAME CAN BE CONVERTED TO CSV FILE TOO IF NECESSARY
@@ -106,16 +109,32 @@ def checkDuplicates(MRN,firstName,lastName,DOB,State,Pincode,
             print("MRN : ", row["MRN"])
             print("Name: ", row['First Name']+' '+row['Last Name'])
             print("DOB: ", row['DOB'])
-            print("Phone: ", row['Phone Number'])      
+            print("Phone: ", row['Phone'])      
             print("Pincode: ", row["Pincode"])
             print("State: ", row["State"])
             print("Years of Exp.: ", row["Years of experience"])
             print("Specialization : ", row["Specialization"])
             print("Education: ", row["Education"])
             print("")
+                        
+            details={ 
+                'MRN': row["MRN"],
+                'First Name': row['First Name'],
+                    'Last Name': row['Last Name'],
+                    'DOB': row['DOB'],
+                    'Phone Number': row['Phone'],
+                    'Pincode': row["Pincode"],
+                    'State': row["State"],
+                    'Years of experience': row["Years of experience"],
+                    'Specialization': row["Specialization"],
+                    'Education': row["Education"],
+                    'Similarity Score': row['Similarity Score']
+            }
+            response['data'].append(details)
             count = count + 1
             if count == 6:
                 break
         data_similarity.to_csv("SimilarData_SingleRowInput.csv")
 
+    return response
 
