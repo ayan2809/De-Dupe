@@ -2,11 +2,11 @@
 from flask import *
 from flask_cors import CORS
 from dedupe import *
-
+import json
 
 app = Flask(__name__)
 CORS(app)
-
+app.secret_key = 'sessionNameEZPZ'
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -27,6 +27,9 @@ def multiMode():
 def dataUpload():
     return render_template('dataUpload.html')
 
+@app.route('/singleUserResult')
+def singleUserResult():
+    return render_template('singleUserResult.html', data=session['temp_dict'])
 
 @app.route('/failure')
 def failure():
@@ -62,8 +65,14 @@ def check_duplication():
                     Education,MRNscale,fNamescale,lNamescale,DOBscale,Statescale,
                     Pincodescale,Phonescale,YOEscale,Specializationscale,Educationscale)
     # response = {'fName': firstName, 'lName': lastName, 'YOE': YOE}
-    
-    return response, 200
+    # print(response['check'])
+    # if response['check']==1:
+    #     return redirect(url_for('singleUserResult'))
+    #     # return render_template('singleUserResult.html')
+    # else:
+
+    session['temp_dict'] = response['data']
+    return jsonify(response), 200
 
 
 if __name__ == '__main__':

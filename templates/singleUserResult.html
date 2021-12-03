@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Card</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.4/jquery.mobile-1.4.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/static/css/styles_Single_Result.css">
+</head>
+
+<body>
+    <div id="container" class="container">
+        <div id="mainDiv" class="row">
+            <!-- <script src="/static/js/dynamicCard.js" charset="utf-8"></script> -->
+            <script>
+                // var JsonData = '[{"title":"Swipe right to add. Move left to remove."}, {"title":"Item one"}, {"title":"Item two"}, {"title":"Item three"}, {"title":"Item four"}, {"title":"Item five"}]';
+                var JsonData= JSON.parse('{{ data | tojson | safe}}');
+                console.log(JsonData);
+                obj=JsonData;
+                // var obj = JSON.parse(JsonData);
+        
+                var tmp = '';
+                $.each(obj, function (key, value) {
+                    tmp += '<div class="postCard">';
+                    tmp +="<h3>"+value['Similarity Score']+"</h3>";
+                    tmp += '    <div class="cardContent" style="display: block;">';
+                    tmp +="<b>MRN</b>: "+value['MRN']+"<br><b>Name</b>: "+value['First Name'] + " " + value['Last Name']+"<br><b>Phone</b>: "+value['Phone Number']+"<br><b>State</b>: "+value['State']+"<br><b>Pincode</b>: "+value['Pincode'] +"<br><b>Speciality</b>: "+value['Specialization']+"<br><b>Education</b>: "+value['Education'];
+                    // tmp += ;
+                    tmp += '    </div>';
+                    tmp += '  </div>';
+                });
+        
+                $('#mainDiv').append(tmp);
+        
+                $('.postCard').eq(0).attr("style", "display: block;").end();
+            </script>
+        </div>
+    </div>
+    <div id="listApp"></div>
+    <div id="listAppHidden"></div>
+    <h3>0%</h3>
+    <div class="button">
+        <label>Show all <input type="checkbox" id="ch" value=""></label>
+        <button id="button" type="button" name="button">Restart</button>
+        <button id="pdfButton" type="button" name="button" onclick="saveDiv('pdf','Title')">Save as *.pdf</button>
+        <button id="printButton" type="button" name="button" onclick="window.print()">Print</button>
+    </div>
+    <script src="/static/js/Result_App.js"></script>
+    
+</body>
+
+</html>
