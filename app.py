@@ -2,6 +2,7 @@
 from flask import *
 from flask_cors import CORS
 from dedupe import *
+from dedupe_bulk import *
 import os
 from werkzeug.utils import secure_filename
 from werkzeug.datastructures import  FileStorage
@@ -90,7 +91,23 @@ def upload_file():
 
 @app.route('/check_bulk_duplication', methods=['POST'])
 def check_bulk_duplication():
-    return 200
+    MRNscale = request.form['MRNscale']
+    fNamescale = request.form['fNamescale']
+    lNamescale = request.form['lNamescale']
+    DOBscale = request.form['DOBscale']
+    Statescale = request.form['Statescale']
+    Pincodescale = request.form['Pincodescale']
+    Phonescale = request.form['Phonescale']
+    YOEscale = request.form['YOEscale']
+    Specializationscale = request.form['Specializationscale']
+    Educationscale = request.form['Educationscale']
+    filename= session['filename']
+
+    # Get the response
+    response=dedupe_bulk(filename,MRNscale,fNamescale,lNamescale,DOBscale,Statescale,
+                    Pincodescale,Phonescale,YOEscale,Specializationscale,Educationscale)
+
+    return jsonify(response), 200
 
 if __name__ == '__main__':
     from argparse import ArgumentParser

@@ -85,17 +85,158 @@
         <div>
             <a href="#" title="Close" class="modal-close">Close</a>
             <h1>Data File Has been Uploaded!</h1>
-            <!-- <div>Data is unique and has been added to the database.</div> -->
-            <!-- <div><small>Check out</small></div> -->
-            <!-- <a href="https://aminoeditor.com" target="_blank">👉 Amino: Live CSS Editor for Chrome -->
         </div>
     </div>
 
-    <div class="container2">
-        <div class="center2">
-            <button type="button" class="main-btn" id="signup_form_button2" value="submit_a">Check for Bulk Duplciation and Generate Report</button>
+
+    <article>
+        <div class="container2">
+            <div class="center3">
+                <form id="submit_form">
+
+
+                    <div class="range-slider" style="display: inline-block; margin-left: 30%;">
+                        <label>
+                            <span style="display: inline-block; margin-right: 5%;  font-size: x-large;">MRN Number</span>
+                            <!-- <input type="text" name="MRN" id="MRN"                                 style="display: inline-block; margin-right: 5%; font-size: large;" /> -->
+                        </label>
+                        <input class="range-slider__range" type="range" value="0.01" min="0.01" max="1" step="0.01"
+                            name="MRNscale" id="MRNscale">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <br>
+
+                    <div class="range-slider">
+                        <label>
+                            <span style="display: inline-block; margin-right: 5%; font-size: x-large;">First Name</span>
+                            <!-- <input style="display: inline-block; margin-right: 5%; font-size: large;" type="text"                                name="firstName" id="firstName" /> -->
+                        </label>
+                        <input class="range-slider__range" type="range" value="0.01" min="0.01" max="1" step="0.01"
+                            name="fNamescale" id="fNamescale">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <br>
+
+                    <div class="range-slider">
+                        <label>
+                            <span style="display: inline-block; margin-right: 5%; font-size: x-large;">Last Name</span>
+                            <!-- <input style="display: inline-block; margin-right: 5%; font-size: large;" type="text"                                name="lastName" id="lastName" /> -->
+                        </label>
+                        <input class="range-slider__range" type="range" value="0.01" min="0.01" max="1" step="0.01"
+                            name="lNamescale" id="lNamescale">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <br>
+
+                    <div class="range-slider">
+                        <label>
+                            <span style="display: inline-block; margin-right: 8%; font-size: x-large;">DOB</span>
+                            <!-- <input style="display: inline-block; margin-right: 8%; font-size: large;" type="date"                                name="DOB" id="DOB" /> -->
+                        </label>
+                        <input class="range-slider__range" type="range" value="0.01" min="0.01" max="1" step="0.01"
+                            name="DOBscale" id="DOBscale">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <br>
+
+
+                    <div class="range-slider">
+                        <label>
+                            <span style="display: inline-block; margin-right: 5%; font-size: x-large;">State</span>
+                            <!-- <input style="display: inline-block; margin-right: 5%; font-size: large;" type="text"                                name="State" id="State" /> -->
+                        </label>
+                        <input class="range-slider__range" type="range" value="0.01" min="0.01" max="1" step="0.01"
+                            name="Statescale" id="Statescale">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <br>
+
+
+                    <div class="range-slider">
+                        <label>
+                            <span style="display: inline-block; margin-right: 5%; font-size: x-large;">Pincode</span>
+                            <!-- <input style="display: inline-block; margin-right: 5%; font-size: large;" type="text"                                name="Pincode" id="Pincode" /> -->
+                        </label>
+                        <input class="range-slider__range" type="range" value="0.01" min="0.01" max="1" step="0.01"
+                            name="Pincodescale" id="Pincodescale">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <br>
+
+
+                    <div class="range-slider">
+                        <label>
+                            <span style="display: inline-block; margin-right: 5%; font-size: x-large;">Phone </span>
+                            <!-- <input style="display: inline-block; margin-right: 5%; font-size: large;" type="tel"                                name="Phone" id="Phone" /> -->
+                        </label>
+                        <input class="range-slider__range" type="range" value="0.01" min="0.01" max="1" step="0.01"
+                            name="Phonescale" id="Phonescale">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <br>
+
+                    <div class="range-slider">
+                        <label>
+                            <span style="display: inline-block; margin-right: 5%; font-size: x-large;">Years of
+                                Exp</span>
+                            <!-- <input style="display: inline-block; margin-right: 5%; font-size: large;" type="text"                                name="YOE" id="YOE" /> -->
+                        </label>
+                        <input class="range-slider__range" type="range" value="0.01" min="0.01" max="1" step="0.01"
+                            name="YOEscale" id="YOEscale">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <br>
+
+                    <div class="range-slider">
+                        <label>
+                            <span
+                                style="display: inline-block; margin-right: 5%; font-size: x-large;">Specialization</span>
+                            <!-- <input style="display: inline-block; margin-right: 5%; font-size: large;" type="text"                                name="Specialization" id="Specialization" /> -->
+                        </label>
+                        <input class="range-slider__range" type="range" value="0.01" min="0.01" max="1" step="0.01"
+                            name="Specializationscale" id="Specializationscale">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <br>
+
+                    <div class="range-slider">
+                        <label>
+                            <span style="display: inline-block; margin-right: 5%; font-size: x-large;">Education</span>
+                            <!-- <input style="display: inline-block; margin-right: 5%; font-size: large;" type="text"                                name="Education" id="Education" /> -->
+                        </label>
+                        <input class="range-slider__range" type="range" value="0.01" min="0.01" max="1" step="0.01"
+                            name="Educationscale" id="Educationscale">
+                        <span class="range-slider__value">0</span>
+                    </div>
+
+                    <br>
+
+                    <div class="container2">
+                        <div class="center2">
+                            <button type="button" class="main-btn" id="signup_form_button2" value="submit_a">Check for Bulk Duplciation
+                                and Generate Report</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
         </div>
-    </div>
+        </div>
+        </div>
+        </div>
+    </article>
+
+    
     <!-- partial -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="/static/js/singleMode.js"></script>
@@ -103,6 +244,7 @@
     <script src="/static/js/multiMode.js"></script>
     <script>
         $(function () {
+            // function for the upload csv button
             $("#signup_form_button").click(function () {
                 var form_data = new FormData($('#upload-file')[0]);
                 $.ajax({
@@ -115,6 +257,28 @@
                     success: function (response) {
                         window.location.href = '#open-modal';
                         console.log(response);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+
+            });
+            // function for the generating report function
+            $("#signup_form_button2").click(function () {
+                $.ajax({
+                    url: "/check_bulk_duplication",
+                    type: "POST",
+                    dataType: 'json',
+                    data: $('#submit_form').serialize(),
+                    success: function (response) {
+                        console.log(response['check']);
+                        if (response['check'] == 1) {                            
+                            window.location.href = '#open-modal';
+                        }
+                        else {
+                            window.location.href = '#open-modal';                            
+                        }                        
                     },
                     error: function (error) {
                         console.log(error);

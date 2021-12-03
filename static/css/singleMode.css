@@ -152,7 +152,7 @@ nav ul li ul li a {
 #nav-toggle.active span:after {
   transform: rotate(-45deg);
 }
-
+/* for the slider */
 article {
     max-width: 1500px;
     margin: 0 auto;
