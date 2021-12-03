@@ -19,31 +19,31 @@
             <!-- <script src="/static/js/dynamicCard.js" charset="utf-8"></script> -->
             <script>
                 // var JsonData = '[{"title":"Swipe right to add. Move left to remove."}, {"title":"Item one"}, {"title":"Item two"}, {"title":"Item three"}, {"title":"Item four"}, {"title":"Item five"}]';
-                var JsonData= JSON.parse('{{ data | tojson | safe}}');
+                var JsonData = JSON.parse('{{ data | tojson | safe}}');
                 console.log(JsonData);
-                obj=JsonData;
+                obj = JsonData;
                 // var obj = JSON.parse(JsonData);
-        
+
                 var tmp = '';
                 $.each(obj, function (key, value) {
                     tmp += '<div class="postCard">';
-                    tmp +="<h3>"+value['Similarity Score']+"</h3>";
+                    tmp += '<h2 style="color:red; text-align: center;"> Similarity: ' + Math.round(value['Similarity Score'] * 100) + " %</h2>";
                     tmp += '    <div class="cardContent" style="display: block;">';
-                    tmp +="<b>MRN</b>: "+value['MRN']+"<br><b>Name</b>: "+value['First Name'] + " " + value['Last Name']+"<br><b>Phone</b>: "+value['Phone Number']+"<br><b>State</b>: "+value['State']+"<br><b>Pincode</b>: "+value['Pincode'] +"<br><b>Speciality</b>: "+value['Specialization']+"<br><b>Education</b>: "+value['Education'];
+                    tmp += "<b>MRN</b>: " + value['MRN'] + "<br><b>Name</b>: " + value['First Name'] + " " + value['Last Name'] + "<br><b>Phone</b>: " + value['Phone Number'] + "<br><b>State</b>: " + value['State'] + "<br><b>Pincode</b>: " + value['Pincode'] + "<br><b>Speciality</b>: " + value['Specialization'] + "<br><b>Education</b>: " + value['Education'];
                     // tmp += ;
                     tmp += '    </div>';
                     tmp += '  </div>';
                 });
-        
+
                 $('#mainDiv').append(tmp);
-        
+
                 $('.postCard').eq(0).attr("style", "display: block;").end();
             </script>
         </div>
     </div>
     <div id="listApp"></div>
     <div id="listAppHidden"></div>
-    <h3>0%</h3>
+    <!-- <h3>0%</h3> -->
     <div class="button">
         <label>Show all <input type="checkbox" id="ch" value=""></label>
         <button id="button" type="button" name="button">Restart</button>
@@ -51,7 +51,7 @@
         <button id="printButton" type="button" name="button" onclick="window.print()">Print</button>
     </div>
     <script src="/static/js/Result_App.js"></script>
-    
+
 </body>
 
 </html>
