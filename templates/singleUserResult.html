@@ -27,7 +27,7 @@
                 var tmp = '';
                 $.each(obj, function (key, value) {
                     tmp += '<div class="postCard">';
-                    tmp +="<h3>"+value['Similarity Score']+"</h3>";
+                    tmp +='<h4 style="background-color:tomato; text-align: center;">'+value['Similarity Score']+"</h4>";
                     tmp += '    <div class="cardContent" style="display: block;">';
                     tmp +="<b>MRN</b>: "+value['MRN']+"<br><b>Name</b>: "+value['First Name'] + " " + value['Last Name']+"<br><b>Phone</b>: "+value['Phone Number']+"<br><b>State</b>: "+value['State']+"<br><b>Pincode</b>: "+value['Pincode'] +"<br><b>Speciality</b>: "+value['Specialization']+"<br><b>Education</b>: "+value['Education'];
                     // tmp += ;

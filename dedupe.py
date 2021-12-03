@@ -87,7 +87,7 @@ def checkDuplicates(MRN,firstName,lastName,DOB,State,Pincode,
                                                             eduWeight)
 
 
-        if score >= 8 or similarityScore > 0.5:
+        if score >= 8 or similarityScore > 0.6:
             data.append([document.get('MRN'), document.get('First Name'), document.get('Last Name'), document.get('DOB'),document.get('Phone'), document.get('Pincode'), document.get('State'), document.get('Years of experience'), document.get('Specialization'), document.get('Education'), similarityScore])
             flag = 1
 

@@ -21,7 +21,7 @@ def singleMode():
 
 @app.route('/multiMode')
 def multiMode():
-    return render_template('multiMode.html')
+    return render_template('dataUpload.html')
 
 @app.route('/dataUpload')
 def dataUpload():

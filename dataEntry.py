@@ -16,7 +16,7 @@ for index, row in df.iterrows():
     firstName=row['First Name']
     lastName = row['Last Name']
     DOB = row['DOB']
-    phone = row['Primary Phone Number']
+    phone = row['Phone Number']
     email = row['Email']
     state = row['State']
     pincode = row['Pincode']

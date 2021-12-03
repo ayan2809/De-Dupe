@@ -1,0 +1,6 @@
+--------Summary of Input Data----------
+
+Total numbers of rows in the input data set: 22.
+Unique Entry Count: 1 (4.55 %)
+Duplicate Entry Count: 21 (95.45 %)
+Partial Similarity Entry Count: 0 (0.0 %)
