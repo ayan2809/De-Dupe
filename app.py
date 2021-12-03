@@ -2,7 +2,11 @@
 from flask import *
 from flask_cors import CORS
 from dedupe import *
-import json
+import os
+from werkzeug.utils import secure_filename
+from werkzeug.datastructures import  FileStorage
+
+
 
 app = Flask(__name__)
 CORS(app)
@@ -74,6 +78,19 @@ def check_duplication():
     session['temp_dict'] = response['data']
     return jsonify(response), 200
 
+
+@app.route('/uploader', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save(secure_filename(f.filename))
+      session['filename'] = f.filename
+      return session['filename']
+
+
+@app.route('/check_bulk_duplication', methods=['POST'])
+def check_bulk_duplication():
+    return 200
 
 if __name__ == '__main__':
     from argparse import ArgumentParser

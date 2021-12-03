@@ -1,12 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De Dupe</title>
+    <link rel="stylesheet" href="/static/css/multiMode.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+
 </head>
+
 <body>
-    
+
+    <section class="navigation">
+        <div class="nav-container">
+            <div class="brand">
+                <a href="#!"><b>De Dupe</b> Batch User System</a>
+            </div>
+            <nav>
+                <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+                <ul class="nav-list">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="#!">Services</a>
+                        <ul class="nav-dropdown">
+                            <li>
+                                <a href="/singleMode">Single Mode</a>
+                            </li>
+                            <li>
+                                <a href="/multiMode">Batch Mode</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/dataUpload">Upload Data</a>
+                    </li>
+                    <li>
+                        <a href="/failure">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <!-- partial:index.partial.html -->
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <div class="file-upload">
+        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
+            CSV File</button>
+
+        <div class="image-upload-wrap">
+            <!-- <form action="/uploader" method="POST" > -->
+            <form id="upload-file" enctype="multipart/form-data">
+                <input class="file-upload-input" name="file" type='file' onchange="readURL(this);"
+                    accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+
+                <div class="drag-text">
+                    <h3>Drag and drop a file or select add CSV</h3>
+                </div>
+        </div>
+        <div class="file-upload-content">
+            <img class="file-upload-image" src="#" alt="Your File" />
+            <div class="image-title-wrap">
+                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
+                        class="image-title">Uploaded CSV/XLXS</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container2">
+        <div class="center2">
+            <button type="submit" class="main-btn" id="signup_form_button" value="submit_a">Upload CSV</button>
+        </div>
+    </div> -->
+    <div class="container2">
+        <div class="center2">
+            <button type="button" class="main-btn" id="signup_form_button" value="submit_a">Upload CSV</button>
+        </div>
+    </div>
+    </form>
+    <div id="open-modal" class="modal-window">
+        <div>
+            <a href="#" title="Close" class="modal-close">Close</a>
+            <h1>Data File Has been Uploaded!</h1>
+            <!-- <div>Data is unique and has been added to the database.</div> -->
+            <!-- <div><small>Check out</small></div> -->
+            <!-- <a href="https://aminoeditor.com" target="_blank">👉 Amino: Live CSS Editor for Chrome -->
+        </div>
+    </div>
+
+    <div class="container2">
+        <div class="center2">
+            <button type="button" class="main-btn" id="signup_form_button2" value="submit_a">Check for Bulk Duplciation and Generate Report</button>
+        </div>
+    </div>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="/static/js/singleMode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.redirect@1/jquery.redirect.min.js"></script>
+    <script src="/static/js/multiMode.js"></script>
+    <script>
+        $(function () {
+            $("#signup_form_button").click(function () {
+                var form_data = new FormData($('#upload-file')[0]);
+                $.ajax({
+                    url: "/uploader",
+                    type: "POST",
+                    data: form_data,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (response) {
+                        window.location.href = '#open-modal';
+                        console.log(response);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+
+            });
+        });
+    </script>
 </body>
+
 </html>
