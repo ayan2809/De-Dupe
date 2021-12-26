@@ -18,7 +18,7 @@ Deduplication Engine is an approach towards solving this problem.
 Deduplication is a technique that minimizes the
 amount of space required to save data on a given storage medium. As
 the name suggests, it is designed to combat the problem
-organizations of all sizes deal with on a regular basis – duplicate data.
+organizations of all sizes deal with on a regular basis – duplicate data
 For some, it’s an accumulation of the exact same files. For others, it’s
 a collection of files that aren’t completely identical yet contain pieces
 of the same data
